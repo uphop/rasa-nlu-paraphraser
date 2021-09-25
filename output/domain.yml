@@ -1,0 +1,47 @@
+version: '2.0'
+
+intents:
+- greet
+- faq
+
+- check_available_engineer
+- ask_about_vacation
+- ask_about_pets
+- ask_about_travel
+- check_team_allocation
+- check_onboarding_status
+- ask_about_hiring
+- validate_team_size
+- validate_team_size
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+
+  utter_default:
+  - text: Sorry I didn't get that. Can you rephrase?
+
+  utter_what_can_you_do:
+  - text: I can answer boring questions on behalf of my master.
+
+  utter_bot_challenge:
+  - text: I am a bot, powered by Rasa.
+
+  utter_check_available_engineer:
+  - text: Sorry but none are available at this time.
+  utter_ask_about_vacation:
+  - text: I'm planning for New Zealand some time next year.
+  utter_ask_about_pets:
+  - text: I have got two cats.
+  utter_ask_about_travel:
+  - text: Yes I enjoy travelling a lot.
+  utter_check_team_allocation:
+  - text: Please check team ouline spreadsheet.
+  utter_check_onboarding_status:
+  - text: We plan to complete all changes by October.
+  utter_ask_about_hiring:
+  - text: We need additional technical recruiter.
+  utter_validate_team_size:
+  - text: There are several major risks I wouuld like to review with you.
+session_config:
+  session_expiration_time: 1
+  carry_over_slots_to_new_session: false

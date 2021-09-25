@@ -1,0 +1,111 @@
+version: '2.0'
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: what_can_you_do
+  examples: |
+    - what can you do?
+    - what are you good at?
+    - whta to ask you?
+    - how to use you?
+- intent: check_available_engineer
+  examples: |
+    - Do we have available front-end engineer?
+    - do we have a front end engineer available?
+    - do we have a front end engineer?
+    - do we have a front-end engineer?
+- intent: ask_about_vacation
+  examples: |
+    - When is your vacation?
+    - when do you take a holiday?
+    - when do you take a break?
+    - when do you take a vacation?
+    - when is your holiday?
+    - when are your vacations?
+    - when's your vacation?
+    - when is your vacation?
+- intent: ask_about_pets
+  examples: |
+    - Do you have pets?
+    - do you have animals?
+    - do you have any pets?
+    - do you own pets?
+    - do you have a pet?
+    - do you have pets?
+- intent: ask_about_travel
+  examples: |
+    - Do you like travelling?
+    - do you like to travel?
+    - do you enjoy travelling?
+    - do you like travel?
+    - you like traveling?
+    - you like travelling?
+    - do you like traveling?
+    - do you like travelling?
+- intent: check_team_allocation
+  examples: |
+    - Where can I see current team allocation?
+    - tell me the best way to see team allocations?
+    - tell me the best way to see the team allocation?
+    - tell me the best way to see current team allocation?
+    - how do i see current team allocation?
+    - where can i see the current team allocations?
+    - where can i see the current team allocation?
+    - how can i see current team allocation?
+    - where can i see current team allocations?
+- intent: check_onboarding_status
+  examples: |
+    - When will we finish onboarding changes?
+    - when do we finish onboarding?
+    - when will we finish the onboarding?
+    - when will we finish the onboarding process?
+    - when will we finish onboarding?
+    - when will we finish the onboarding changes?
+- intent: ask_about_hiring
+  examples: |
+    - Do you need any help with hiring?
+    - i need help with my job search
+    - do you need help hiring?
+    - do you need help in hiring?
+    - do you need any help hiring?
+    - do you need help with hiring?
+    - do you need any help with hiring?
+- intent: validate_team_size
+  examples: |
+    - Do you think team size is sufficient?
+    - is team size enough?
+    - what do you think is a sufficient team size?
+    - what do you think is the right team size?
+    - what do you think is a good team size?
+    - is team size sufficient?
+    - is a team size sufficient?
+    - is the team size sufficient?
+    - do you think team size is enough?
+    - do you think team size is adequate?
+    - do you think team size is sufficient?
+- intent: validate_team_size
+  examples: |
+    - Do you see any technical risks?
+    - is there any technical risk?
+    - how do you see potential technical risks?
+    - are there any technical risks?
+    - do you see technical risks?
+    - do you see any technical risk?
+    - how do you see the technical risks?
+    - do you see any technical risks?
+    - how do you see any technical risks?
