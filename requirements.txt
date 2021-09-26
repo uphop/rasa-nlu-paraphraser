@@ -1,2 +1,5 @@
 ruamel.yaml==0.16.12
 python-dotenv==0.15.0
+git+https://github.com/PrithivirajDamodaran/Parrot_Paraphraser.git
+protobuf==3.18.0
+pandas==1.3.3
