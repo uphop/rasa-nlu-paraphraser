@@ -9,12 +9,15 @@ from shutil import copyfile, copytree, rmtree
 Generates Rasa domain based on template
 '''
 class DomainGenerator:
-    def __init__(self):
+    def __init__(self, paraphraser):
         # get input / ouput details from config
         self.TEMPLATE_FOLDER = os.getenv('TEMPLATE_FOLDER', './data/templates')
         self.OUTPUT_FOLDER = os.getenv('OUTPUT_FOLDER', './data/output')
         self.TEMPLATE_DOMAIN_FILE = os.getenv('TEMPLATE_DOMAIN_FILE', 'domain.yml')
         self.OUTPUT_DOMAIN_FILE = os.getenv('OUTPUT_DOMAIN_FILE', 'domain.yml')
+
+        # init paraphrase generator
+        self.paraphraser = paraphraser
 
     def generate(self, intents):
         # re-create output folder
@@ -62,5 +65,15 @@ class DomainGenerator:
     def get_intent_domain(self, intent_name, intent_orignal_response):
         # prepare a new intent element
         intent = 'utter_' + intent_name
+
+        # generate parapharses
+        paraphrases = self.paraphraser.get_paraphrases(intent_orignal_response)
+
+        # add original response
         text = [{'text': intent_orignal_response}]
+
+         # concatenate phrase variations
+        for paraphrase in paraphrases:
+            text.append({'text': paraphrase})
+
         return intent, text

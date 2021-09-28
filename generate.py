@@ -1,36 +1,30 @@
-from csv import DictReader
 from generators.nlu_generator import NLUEGenerator
 from generators.domain_generator import DomainGenerator
+from utils.intent_reader import IntentReader
+from utils.paraphraser import Paraphraser
 import logging
 logging.basicConfig(level=logging.DEBUG)
-import uuid
-
-INPUT_FILE_NAME = 'data/inputs/sample_intents.csv'
-
-def read_intents():
-    intents = []
-    logging.debug('Reading intents...')
-    with open(INPUT_FILE_NAME, 'r') as read_obj: 
-        csv_dict_reader = DictReader(read_obj)
-        for row in csv_dict_reader:
-            intent = row
-            intent['intent_name'] = str(uuid.uuid4().hex)
-            intents.append(intent)
-    return intents
 
 def main():
+    # init paraphrase generator
+    logging.debug('Initializing paraphraser...')
+    paraphraser = Paraphraser()
+
     # read sample intents
-    intents = read_intents()
+    logging.debug('Reading intents...')
+    intents = IntentReader().read_intents()
 
     # generate NLUs
-    logging.debug('Generating NLU...')
-    NLUEGenerator().generate(intents)
+    logging.debug('Generating NLU training data...')
+    nlu_output_file = NLUEGenerator(paraphraser).generate(intents)
 
     # generate domain
-    logging.debug('Generating domain...')
-    DomainGenerator().generate(intents)
+    logging.debug('Generating domain data...')
+    domain_output_file= DomainGenerator(paraphraser).generate(intents)
 
-    logging.debug('Completed, please check output folder for results.')
+    logging.debug('Completed, please check output folder for results: ')
+    logging.debug('NLU training data: ' + nlu_output_file)
+    logging.debug('Domain data: ' + domain_output_file)
     
 if __name__ == "__main__":
     main()

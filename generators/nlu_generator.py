@@ -4,13 +4,12 @@ import ruamel
 import ruamel.yaml
 from ruamel.yaml.scalarstring import PreservedScalarString as pss
 from shutil import copyfile, copytree, rmtree
-from utils.paraphraser import Paraphraser
 
 '''
 Generates Rasa NLU based on template and paraphrases
 '''
 class NLUEGenerator:
-    def __init__(self):
+    def __init__(self, paraphraser):
         # get input / ouput details from config
         self.TEMPLATE_FOLDER = os.getenv('TEMPLATE_FOLDER', './data/templates')
         self.OUTPUT_FOLDER = os.getenv('OUTPUT_FOLDER', './data/output')
@@ -18,7 +17,7 @@ class NLUEGenerator:
         self.OUTPUT_NLU_FILE = os.getenv('OUTPUT_NLU_FILE', 'nlu.yml')
 
         # init paraphrase generator
-        self.paraphraser = Paraphraser()
+        self.paraphraser = paraphraser
     
     def generate(self, intents):
         # re-create output folder

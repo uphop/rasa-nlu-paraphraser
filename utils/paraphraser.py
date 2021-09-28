@@ -16,6 +16,8 @@ class Paraphraser:
             adequacy_threshold = 0.99, 
             fluency_threshold = 0.90
         )
+
+        # add all paraphrased options
         results = [para_phrase[0] for para_phrase in para_phrases]
 
         return results
